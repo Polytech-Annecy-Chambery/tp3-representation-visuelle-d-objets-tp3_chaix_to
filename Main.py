@@ -37,14 +37,14 @@ def Q2c():
             )
 
 def Q3a():
-    pass  
+    return Configuration().add(Wall({'position': [1, 1, 0],'width':7,'height':7,'orientation':90}))  #créé un mur de taille 7x7x0,2 orienté de 90° d'angle
 
 def Q4a():
     # Ecriture en utilisant des variables : A compléter
-    wall1 = Wall(...)
-    wall2 = Wall(...)
-    wall3 = Wall(...)
-    wall4 = Wall(...)  
+    wall1 = Wall({'position':[0,0,0], 'width':7, 'height':2.6})
+    wall2 = Wall({'position':[0,7,0], 'width':7, 'height':2.6, 'orientation':0})
+    wall3 = Wall({'position':[0.2,-7,0], 'width':7, 'height':2.6, 'orientation':90})
+    wall4 = Wall({'position':[0.2,-0.2,0], 'width':7, 'height':2.6, 'orientation':90})  
     house = House({'position': [-3, 1, 0], 'orientation':0})
     house.add(wall1).add(wall3).add(wall4).add(wall2)
     return Configuration().add(house)   
@@ -70,7 +70,7 @@ def Q5b():
 def Q5c1():      
     section = Section({'width':7, 'height':2.6})
     opening1 = Opening({'position': [2, 0, 0], 'width':0.9, 'height':2.15, 'thickness':0.2, 'color': [0.7, 0.7, 0.7]})
-    sections = section.createOpening(opening1)
+    sections = section.createNewSections(opening1)
     configuration = Configuration()
     for x in sections:
         configuration.add(x)    
@@ -95,11 +95,11 @@ def main():
     # Enlever un des commentaires pour la question traitée
     
     # configuration = Q1a()
-    configuration = Q1b_f()
+    # configuration = Q1b_f()
     # configuration = Q2b()
     # configuration = Q2c()
     # configuration = Q3a()
-    # configuration = Q4a()
+    configuration = Q4a()
     # configuration = Q5a()
     # configuration = Q5b()
     # configuration = Q5c1()
@@ -110,5 +110,4 @@ def main():
          
 # Calls the main function
 if __name__ == "__main__":
-    main()
-    
+    main()    
